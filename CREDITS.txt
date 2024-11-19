@@ -1,0 +1,27 @@
+﻿(Copyrighted/Inspiration) Megaman Sprite Sheet for player sprite INSPIRATION: https://www.deviantart.com/johncartoonist04/art/Fan-made-MegaMan-8-bit-spritesheet-old-851798329
+
+
+(Copyrighted/Inspiration) Clipart of Bags for bag obstacle prefabs: https://www.pinterest.com/pin/92534967331396738/.
+
+
+(Copyrighted/Inspiration) Train interior photo for carpet background: https://www.travelandleisure.com/thmb/NBgR-zqsjz3YSEizwF0MKqsrk6w=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/TAL-interior-NEWAMTRAK1222-0ce5d7c287e04962920ef547b2480f51.jpg
+
+
+(Free To Use) 8-bit bird sprite animation for bird obstacle prefabs: https://ma9ici4n.itch.io/pixel-art-bird-16x16
+
+
+(Free To Use) Sounds found on mixkit: 
+Respawn Sound: “Arcade video game bonus” → https://mixkit.co/free-sound-effects/game/
+Next Level Sound: “Casino bling achievement” → https://mixkit.co/free-sound-effects/game/
+Jump Sound:  “Player jumping in a video game” → https://mixkit.co/free-sound-effects/jump/
+Fall Sound: “Negative Guitar Tone” → https://mixkit.co/free-sound-effects/game/?page=2
+Collision Sound: "Boxing punch" → https://mixkit.co/free-sound-effects/game/
+
+
+(Misc Link) Sprite Sheet Generator: https://codeshack.io/images-sprite-sheet-generator/ 
+
+
+(Misc Link) YouTube tutorial on how to make sprite animations: https://www.youtube.com/watch?v=FXXc0hTWIMs
+
+
+(Misc Link) Piskel sprite edito: https://www.piskelapp.com/p/create/sprite

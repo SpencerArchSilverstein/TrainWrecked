@@ -1,0 +1,213 @@
+﻿Overview/Instructions: 
+For this game, you will keep a development log: an online journal documenting your development process. This can be as simple as a .txt file with a dated entry for every time you worked on the game, or as fancy as a Wordpress blog. But you will be turning it in, so it must be something that the peer reviewers will be able to read. You can assume people will be able to read .txt files, .pdf files, and probably .docx files. And obviously, if you use a web site, they’ll be able to read that.
+Each time you:
+* Make a significant decision about the game design
+* Implement a feature
+* Fix a non-trivial bug
+* Otherwise make a significant change
+
+
+Preproduction:
+Date: 
+10/30/23
+DevLog Entry:
+* Today I brainstormed about what I want my game to be
+* I have had this idea in my head about a climbing game for a while, where you’re a conductor in a crashed train, and the train is vertical, hanging off a bridge, and your goal is to get to the top of it, and survive basically. The whole game will be a top-down view of a train.
+* I think for the objects I want to interact with, I want to have bags falling from the ceiling, obstructing my path and birds coming from the side being a nuisance. I think I want to jump from chair to chair to climb to the top.
+* If you fall on one level, you get sent back to the previous level. I think I may want to do 5 levels, but we’ll see how timing all plays out.
+* I think this narrative combined with the 2D platformer will result in a great game, and I can’t wait to get started!
+
+
+Aesthetic Goals:
+Before you begin writing code, you should think about what you want the experience of the game to be like. Choose two aesthetic goals, in the MDA sense. These should be phrased in terms of player experience: the player’s emotions, desires, thought processes, etc. They should not be phrased in terms of code, game mechanics, or other things outside the player’s head.
+Write each aesthetic goal in your devlog:
+* Describe the goal in a simple English sentence
+* Describe signs that would indicate you were being successful with this goal
+* Describe signs to watch out for that that you were failing with the goal
+You should refer back to these goals when making design decisions. When choosing between two possible designs, always choose the one that best supports your aesthetic goals.
+
+
+Aesthetic Goal 1: Challenge
+1. Formal Definition:
+   1. This game will make good on the aesthetic goal of being challenging, quite simply, if the player feels (at least a bit) challenged while playing it. 
+2. Signs of Success:
+   1. In the face of this challenge, the player becomes more determined to beat the game
+   2. The player feels more accomplished after beating this game than they would if they were to beat an easier game
+3. Signs of Failure:
+   1. The player struggles too much with the game, becomes defeated, and gives up while playing it
+   2. The player struggles too little with the game, and thinks that the game could be harder
+
+
+Aesthetic Goal 2: Sensation
+1. Formal Definition:
+   1. The game will make good on the aesthetic goal of invoking sensations in the player if the player gets emotionally invested in the game
+2. Signs of Success:
+   1. The player’s stomach drops a bit every time they fall off a platform
+   2. The player becomes slightly frustrated with the bags or birds as they prevent the player from continuing
+   3. The player feels a sense of relief after they win
+3. Signs of Failure:
+   1. The player is indifferent to the movement/progression of the game
+   2. The player doesn’t feel anything when they win or fall off the screen
+
+
+Core Loop:
+1. Game core mechanics:
+   1. Movement/Platforming: The player moves using “A / W / D” (moves left / jumps / moves right respectively) to jump on the chair platforms, and progress to the next level
+   2. Dodging: To progress through the game, the player must avoid the bag and bird obstacles
+2. What’s the player going to be doing the most?
+   1. The player will spend most of their time platforming, as getting to the next level via the platforms is their main goal
+3. Core loop: 
+   1. Jump from chair to chair, avoid falling off, dodge bag obstacles, dodge bird obstacles, get to the next level
+4. How does your core loop serve your aesthetic goals?
+   1. The difficult platforming will serve my goal of challenging the player, and the dodging obstacles will create sensations, getting the player emotionally invested in the game
+
+
+Date: 
+10/31/23
+DevLog Entry:
+* Today I started off by making my player sprite. I would like to make my player sprite animated. I’ve never made an animation in Unity before, so this’ll be a bit of a learning curve. To make my player sprite, I’m using this site I found called Piskel: https://www.piskelapp.com/p/create/sprite. I’ve heard it’s a great resource to make 8-bit sprites/sprite sheet/animations
+* I’m having trouble making a player sprite a shape that I’m proud of. The figure always looks a bit off. I think I’m going to look online for inspiration.
+* In my research, I found an 8-bit Mega Man design that I love. It’s expressive, compact, and overall looks pretty cool. I think I’m going to use his outline as inspiration for my sprite design, and then expand on it from there.
+* I used this sprite sheet: https://www.deviantart.com/johncartoonist04/art/Fan-made-MegaMan-8-bit-spritesheet-old-851798329. Megaman’s 8-bit form is copyrighted, but I significantly changed it to the point where I’m in the clear
+* I want my player to be the conductor of the train (who, from a narrative angle, got knocked down to the bottom of the train when the train crashed (and despite that crash, is completely fine))
+* I looked up photos of conductors as inspiration. I couldn’t find one specific image to base my sprite off of, but what I did understand, is that my player needed a striped hat and a navy suit. I then got set on a navy blue/white/gold outfit color scheme that I was happy with. I’m so happy with how it came out.
+* After I made the first frame of my player, I made an idle animation for him. I noticed that in traditional 8-bit games, the player’s head/body bobs up and down to show the user that the player sprite is alive/breathing, so I think I’m going to do that
+* I just finished the player bobbing idle animation, and it’s so cool
+
+
+Date:
+11/01/23
+DevLog Entry:
+* Next, I wanted to make a player run/jump animation. I used the same mega man sprite sheet as before for inspiration again
+* I’m making left and right animations in the sprite sheet. I found this great site: https://codeshack.io/images-sprite-sheet-generator/ that takes PNGs and makes a spritesheet out of them
+* Then, I made a “Menu” scene, a “Main” scene, and an “Instructions” scene. I added these scenes to the build settings. I wrote a script called “SceneChanger” that loaded different scenes. Then I made canvas objects and some buttons that called these “SceneChanger” functions (sent the player to different scenes on press). 
+
+
+Date:
+11/02/23
+DevLog Entry:
+* I used this YouTube tutorial to help me through the sprite animation sequence: https://www.youtube.com/watch?v=FXXc0hTWIMs. It was really informative, easy to follow
+* I’m running into some issues with controlling my animations based on button presses. I also went to office hours, and they recommended that I playerSpriteRenderer.flipX which was a gamechanger and helped my game run smoother. Guess I didn’t need to make those left/right animations, but, oh well
+* I figured out that the bug was that I was using “GetKeyDown” instead of “GetKey”...it’s always the smallest things…
+* After going to that office hours session, I was able to sort out my animation/controls issue. I went to the animator tab, and made boolean variables for the sprite to check if the player object is running/jumping. If it is, it should change it’s animations to the respective animations. 
+* I wanted to cap my horizontal velocity, but I kept running into bugs with it. I don’t think I’m going to cap it, but I think it’ll be fine. Maybe I’ll change it later.
+
+
+Date:
+11/03/23
+DevLog Entry:
+* Next, I want to make the platform sprites. I looked at train seat images to get inspiration, and I settled on a top-down version of chairs. No specific image jumped out at me for inspiration.
+* In planning out the chair/platform sprites, I decided to make a few different variations of them. I made a couple that were decayed on either side of the chair (and I made them with a smaller hitbox), as well as a version of a chair with no back, aka no platform, aka, when the player walks over it, they’ll fall. The chairs are navy blue, and various shades of light blue. 
+
+
+Date:
+11/04/23
+DevLog Entry:
+* Today I set up my first level, lining up the chair platforms over the first screen
+* I don’t love how wide my game screen is, so I added tighter walls. In addition, I’m planning on making two columns of space where the bags can spawn. This’ll be the top-down view of the aisles on the train.
+
+
+Date:
+11/05/23
+DevLog Entry:
+* I realized that occasionally, if you jumped and interacted with the box colliders of the chairs that you’d be able to jump again from the side of the chairs. I also realized that if I had 5 chair images side to side, it’d be a bit stupid to have 5 box colliders on my screen. To remedy this, I created a separate square with a box collider 2D component. I turned off this object’s sprite renderer and gave it my platform tag. Next, I made another invisible square with a box collider 2D component. This one is meant to be a buffer so that the player can’t wall jump. Additionally, the player will now bump into the chairs from the bottom and side.
+
+
+Date:
+11/06/23
+DevLog Entry:
+* Next, I need to make the bag obstacle sprites. I don’t think I want to make it such that the player loses a life, just that their velocity/momentum gets affected a bit
+* I went back to piskel, and started working on different bag prefabs. I looked up images of luggage clipart as inspiration.
+* This is the image I used as inspiration: https://www.pinterest.com/pin/92534967331396738/. This image is not for free use, but using art for inspiration isn’t copyright infringement. Also, the reference image is a clipart drawing, not a direct 1:1 8-bit sprite 
+* I settled on modeling a classic brown/gold suitcase, a thinner/taller red suitcase, and a big green suitcase. I named these prefab designs “Bag1”, “Bag2” and “Bag3” respectively. 
+* Once I made these prefabs, I wrote a “Bag” script to make sure that the bag prefabs would have collision with the player, and that they’d disappear on exiting the screen
+* Next I made a “BagSpawner” script that spawned the bags at the top of the screen and continuously dropped them. 
+* I added a variable that randomly changes the height of the spawner occasionally. Additionally, I added another variable that changes which Bag Prefab spawns from the BagSpawners. This will add some variation to the bag spawning.
+
+
+Date:
+11/07/23
+DevLog Entry:
+* Next, I colored in the “pathways” that make it clear to the player where the bags will be dropping
+* For these pathways, I made some beige rectangles of hex color #C3B091
+
+
+Date:
+11/08/23
+DevLog Entry:
+* Next I wanted to do something special for the larger background of my game
+* I went back to Piskel, and using some interior train images, I made 5 different train carpet squares.
+* I used this image as a reference: https://www.travelandleisure.com/thmb/NBgR-zqsjz3YSEizwF0MKqsrk6w=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/TAL-interior-NEWAMTRAK1222-0ce5d7c287e04962920ef547b2480f51.jpg (which again, is fair use, because it wasn’t a 1:1 recreation of the image/I’m not directly using the image in my game without crediting/paying the photographer).
+* I initially was planning on having these squares individually fill up the space in-between the paths, but then I realized that that wouldn’t be efficient. To remedy this, I set up a series of unique carpet sequences, and I continuously took screenshots of them. 
+* I colored in the walls the gray color hex: #959595
+* Once I had completed my first level, I made my second level in a similar vein. I think I made this level a bit harder in terms of the platforming
+* To make the transition between the first and second level, I wrote a script “CamCam” that manually moved the camera to the new level when the player interacted with the top or bottom of the screen
+
+
+Date:
+11/09/23
+DevLog Entry:
+* Today wrote more into my “Player” script which will teleport the player to the new level on interaction with the ceiling object at the top of the level
+* Additionally, I made it such that when the player changed levels the bag spawners followed him, and fit into their appropriate spots
+* Further, today I added the event in which the player fell to the bottom of the screen of the second level, the camera/player would be teleported to the first level. The player would be at the same x-position and moving with the same velocity as he had been on level 2
+
+
+Date:
+11/10/23
+DevLog Entry:
+* Today I added a third level, and placed out all of the chair objects that I wanted to have the player jump to
+* I initially wanted to make 5 levels, but getting some time constraints, I think it’d be better for me to do 3 levels
+* I made it such that when you fell to the bottom of level 3, the game moved you back to level 2 (the player and the camera). I previously did this with level 2 to level 1.
+* As well, I wanted to add some birds to fly across the level horizontally. I looked online for bird animation sprite sheets. In my research, I found this itch.io page that had a great bird animation for free use: https://ma9ici4n.itch.io/pixel-art-bird-16x16. This worked perfectly for my bird obstacles.
+* I made a green variation of this bird, and then with the green and blue versions, I made animations for them. I assigned these animations to prefabs, and I used my “BagSpawner” script to help me with my “BirdSpawner” script. 
+* Once I had completed that I had my green bird flying rightward and my blue bird flying leftward
+* I wrote a “Bird” script making the prefabs disappear when they came into contact with a bag clone or the player object
+* I then made it such that these objects added a bit of horizontal force to the player on collision
+* I made a “YouWin” scene, and had it trigger on the collision of the player and the final level’s ceiling
+* There will be no “YouLose” scene
+* In addition, I wrote out the game’s instructions in the “Instructions” scene. I think I’m going to submit a pdf of this image as my Instructions for the game, as it covers all of the bases needed in the rubric
+
+
+Date:
+11/11/23
+DevLog Entry:
+* I think I’m starting to realize that my game might be a bit too hard to complete. I want to fulfill the challenge aesthetic, but I don’t want the grader to rage quit, and give me bad marks.
+* I then added an “Easy Mode” and “Hard Mode”. The “Easy Mode” respawns you at the current level’s start when you die. AKA, you don’t lose your progress when you fall. The “Hard Mode” keeps the original mechanic of having you fall until you reach a platform on some previous level. I did this by duplicating the Main scene, and creating a new player script that didn’t make the player teleport to a previous level. Additionally, I altered the camera changes, such that they didn’t move to a previous level when the player fell to the floor (collided with my rectangle with a box collider 2D with the tag of OOBFloor#).
+* I went back to my instructions screen, and explained this change to the player/grader
+* Is this the best way of doing this? No. Is it the easiest/quickest? Yes. Had I had more time, I could’ve made some singleton variable that globally checked and set the game to easy or hard mode.
+
+
+Date:
+11/12/23
+DevLog Entry:
+* Today I finished up my game
+* I added sounds to when a player respawned, got to the next level, jumped, collided with an obstacle, and when the player fell to a previous level. I couldn’t find the mixers/owners of the sounds. I’ve included their names and the website I got them from
+
+
+Respawn Sound: “Arcade video game bonus” → https://mixkit.co/free-sound-effects/game/
+Next Level Sound: “Casino bling achievement” → https://mixkit.co/free-sound-effects/game/
+Jump Sound:  “Player jumping in a video game” → https://mixkit.co/free-sound-effects/jump/
+Fall Sound: “Negative Guitar Tone” → https://mixkit.co/free-sound-effects/game/?page=2
+Collision Sound: "Boxing punch" → https://mixkit.co/free-sound-effects/game/
+
+* I made the “YouWin” and “Menu” scenes a bit more official
+* I wrote my post-mortem
+* I added a duplicate You Win screen for the "Hard Mode" that would go back to its corresponding game mode
+
+
+Post-mortem:
+When you’re done, add an after-action report to your devlog:
+1. Summarize what you originally set out to do
+   1. From the perspective of my aesthetic goals, I set out to make a 2D platformer that was challenging and invoked sensations in the player. Further, I set out to make a 5 level game that sent you back to previous levels if you fell down. From my personal goals, I set out to create a 2D platformer that I had been thinking about making for a while and give it the flowers that it deserved.
+2. Summarize what your goals ended up being by the end
+   1. My personal and aesthetic goals remained the same. However, as time went on and I was getting increasingly aware of my time limitations, that 5 level hard gauntlet, shortened to a 3 level game with an easy mode for the graders if they’d like to have that option.
+3. Summarize what you accomplished of those goals
+   1. I accomplished the 3 level game with an easy mode and hard mode. I accomplished the 2D platformer, with the player moving with AWD, bag/bird obstacles flying at the player, and chair platforms to jump on.
+4. What went right?
+   1. I really enjoyed making the sprites for my game. I haven’t worked on making my own 2D 8-bit sprites before, and it was a great experience. I loved the artistic aspects of this assignment. Designing the levels went smoothly, and I think the Hard mode is respective of the initial intention.
+5. What went wrong?
+   1. I had a couple issues with the player movement and the player animations. Sometimes they wouldn’t activate, and that was frustrating to debug.
+6. What do you wish you knew at the start of the project that you know now?
+   1. I think I already knew this, but to be reminded of it: it’s better to set a smaller scope and build from there, than it is to make bigger plans that may not live up to your expectations. 
+7. What did you learn in the process?
+   1. 2 weeks is not as long as you think it is for game development (plus the addition of other classwork, social stuff, hobbies, etc)
